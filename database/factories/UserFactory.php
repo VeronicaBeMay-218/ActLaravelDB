@@ -17,7 +17,7 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+        return [//datos de la tabla usuarios
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
