@@ -15,7 +15,7 @@
 
                              <tr>
                                 <th></th>
-                                <th class="">name</th>
+                                <th class="">Nombre</th>
                                 <th>email</th>
                                 
                             </tr>
