@@ -11,12 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 200);
-            $table->string('clave', 8);
-            $table->string('ing', 3);
-            $table->integer('semestre');
+
+            $table->integer('unidad');
+            $table->string('tema',200);
+            $table->string('subtema',100);
+
+           
+            $table->foreignId('subject_id')
+
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('topics');
     }
 };
