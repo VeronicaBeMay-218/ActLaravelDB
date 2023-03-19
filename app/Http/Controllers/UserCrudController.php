@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\User;//llamar al modelo
 
 class UserCrudController extends Controller
 {
@@ -13,8 +13,9 @@ class UserCrudController extends Controller
     public function index()
     {
         //LLAMA AL MODELO USER
-        $users = User::all();  
-        dd($users); 
+        $users = User::all();  //users url /users se va al index , en el index llama modelo user y al metodo all
+        //dd($users); //all me devuelve todo y lo guarda en la variable users dd para probar
+        return view('users.usersAll',compact('users'));//LLAMAR FUNCION COMPACT SE PEUDE MANDAR MAS DATOS
     }
 
     /**
