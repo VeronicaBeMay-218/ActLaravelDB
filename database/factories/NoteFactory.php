@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Topic;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class NoteFactory extends Factory
     {
 
         //agregar id
-        $topics=Topic::all()->ramdom();
+        $topic=Topic::all()->ramdom();
         return [
             //
 
@@ -26,7 +27,7 @@ class NoteFactory extends Factory
             'anotaciones'=>fake()->sentence(),
             'palabrasClave'=>fake()->sentence(),
             'resumen'=>fake()->sentence(),
-            'topic_id'=>$topics
+            'topic_id'=>$topic
         ];
     }
 }

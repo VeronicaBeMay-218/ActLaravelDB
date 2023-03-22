@@ -16,9 +16,9 @@ return new class extends Migration
 
 
            
-            $table->string('anotaciones',1200);
-            $table->string('palabrasClave',999);
-            $table->string('resumen',1200);
+            $table->string('anotaciones',200);
+            $table->string('palabrasClave',200);
+            $table->string('resumen',200);
            
             $table->foreignId('user_id')
 
@@ -26,11 +26,11 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreignId('topic_id')
+            //$table->foreignId('topic_id')
 
-            ->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            //->constrained()
+            //->onUpdate('cascade')
+            //->onDelete('cascade');
 
 
 

@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('subtema',100);
 
            
-            $table->foreignId('subject_id')
+            //$table->foreignId('subject_id')
 
-            ->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            //->constrained()
+           // ->onUpdate('cascade')
+           // ->onDelete('cascade');
 
             $table->timestamps();
         });
