@@ -11,8 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {//no cambiar nombre notes 
             $table->id();
+
+
+           
+            $table->string('anotaciones',1200);
+            $table->string('palabrasClave',999);
+            $table->string('resumen',1200);
+           
+            $table->foreignId('user_id')
+
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('topic_id')
+
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+
+
             $table->timestamps();
         });
     }
@@ -22,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('notes');//no cambiar nombre notes 
     }
 };

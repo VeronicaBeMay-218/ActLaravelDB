@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
 
        ]);*/
 
-//INSERTAR 50 REGISTROS
+//INSERTAR 50 REGISTROS CON FACTORY
         User::factory()
         ->count(50)
         //->hasPost(1)

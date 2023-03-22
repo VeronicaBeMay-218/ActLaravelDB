@@ -1,9 +1,16 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\User;
+
+use App\Models\Subject;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use Illuminate\Supoort\Str;
+use Illuminate\Supoort\Facades\DB;
+use Illuminate\Supoort\Facades\Hash;
+
+
 
 class SubjectSeeder extends Seeder
 {
@@ -14,9 +21,9 @@ class SubjectSeeder extends Seeder
     {
         //
 
-        User::factory()
+        Subject::factory()
         ->count(250)
-        //->hasPost(1)
+        ->hasTopics(5)//cuantos topics quiere que haga por cada factory de subject
         ->create();
     }
 }

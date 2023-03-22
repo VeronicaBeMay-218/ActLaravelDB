@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserCrudController;
-
+use App\Http\Controllers\NotasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
   //diferentes metodos
-
+//Route::get('/notas',[notasContoller::class,'index'])->name();
     Route::resource('/users', UserCrudController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

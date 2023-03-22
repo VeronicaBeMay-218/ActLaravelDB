@@ -18,11 +18,9 @@ class SubjectFactory extends Factory
     {
         return [
             //
-
             'nombre'=>fake()->sentence(),
             'clave'=>fake()->bothify('???-####'),
-            'carrera'=>fake()->randomElement(['isc','ier','iem','ii','ie']),
-            'unidad'=>fake()->randomDigitNot()
+            'carrera'=>fake()->randomElement(['isc','ier','iem','ii','ie'])
         ];
     }
 }

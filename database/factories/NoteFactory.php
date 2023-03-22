@@ -16,8 +16,17 @@ class NoteFactory extends Factory
      */
     public function definition(): array
     {
+
+        //agregar id
+        $topics=Topic::all()->ramdom();
         return [
             //
+
+
+            'anotaciones'=>fake()->sentence(),
+            'palabrasClave'=>fake()->sentence(),
+            'resumen'=>fake()->sentence(),
+            'topic_id'=>$topics
         ];
     }
 }
