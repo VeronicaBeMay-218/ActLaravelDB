@@ -18,8 +18,22 @@ class TopicsSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
+
     {
         //esta vacio xq es llamad a r¿travez de subject
         
+        foreach($asignaturas as $asignaturas){
+
+            Topic::actory()
+            ->count($aasignatura['unidades'])
+            ->for(subjct:factory()->state([
+                "carrrera"=>$asignatura['ingenieria']
+                "nombre"=>$asignatura['nombre']
+
+
+            ])
+            
+            )
+        }
     }
 }

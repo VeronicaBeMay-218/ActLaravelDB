@@ -43,9 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function notes(): HasMany//esta relacion se llama topics
+    public function anotes(): HasMany//esta relacion se llama topics
 {
-    return $this->hasMany(Note::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
+    return $this->hasMany(Anote::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
     //y voy a acceder a ellos a travez de topics
     //topics va regresar todos lo temas relacionados a el subject
 

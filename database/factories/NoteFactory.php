@@ -19,14 +19,14 @@ class NoteFactory extends Factory
     {
 
         //agregar id
-        $topic=Topic::all()->ramdom();
+        $topic=Topic::all()->random();
         return [
             //
 
 
-            'anotaciones'=>fake()->sentence(),
-            'palabrasClave'=>fake()->sentence(),
-            'resumen'=>fake()->sentence(),
+            'anotaciones'=>fake()->paragraph(5),
+            'palabrasClave'=>fake()->words(3, true),
+            'resumen'=>fake()->paragraph(7),
             'topic_id'=>$topic
         ];
     }

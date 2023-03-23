@@ -30,10 +30,14 @@
                                 <tr class="bg-slate-500">
                                     
                                     <td>{{$loop->iteration}}</td>
-                                    
+                                    <<tr></tr>
                                     <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$nota->resumen}}</td>
                                     <td class="px-3 py-2 bg-slate-500">{{$nota->topic->subject->nombre}}</td>
                                     <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$nota->topic->tema}}</td>
+                                    <td>
+
+                                    <a href="{{route{"></a>
+                                    </td>
                                 
 
                                 </tr>
@@ -44,6 +48,12 @@
                                     <td class="px-3 py-2 bg-slate-100">{{$nota->resumen}}</td>
                                     <td class="px-3 py-2 bg-slate-500">{{$nota->topic->subject->nombre}}</td>
                                     <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$nota->topic->tema}}</td>
+
+                                    <td class='px-3'></td>
+
+                                    <x-detalles-link :nota='$nota'></x-detalles-link>
+                                    <x-edit-link :nota='$nota'></x-edit-link>
+                                    <x-eliminar-link :nota='$nota'></x-eliminar-link>
                                 
                                 </tr>
                                 

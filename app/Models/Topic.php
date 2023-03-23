@@ -20,7 +20,9 @@ public function subjects(): belongsTo
 
 public function notes(): HasMany//esta relacion se llama topics
 {
-    return $this->hasMany(Note::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
+    return $this->hasMany(Note::class);
+
+}//retur de este modelo que apunta a topic class tiene muchos topicos
     //y voy a acceder a ellos a travez de topics
     //topics va regresar todos lo temas relacionados a el subject
 

@@ -13,5 +13,6 @@ class NoteSeeder extends Seeder
     public function run(): void
     {
         //
+        
     }
 }

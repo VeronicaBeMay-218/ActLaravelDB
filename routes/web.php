@@ -32,7 +32,14 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
   //diferentes metodos
-//Route::get('/notas',[notasContoller::class,'index'])->name();
+//Route::get('/notas',[notasContoller::class,'index'])->name('notas');
+//Route::get('/notas/{id}',[notasContoller::class,'show'])->name('notas.show');
+//Route::get('/notas',[notasContoller::class,'show'])->name('notes.create');
+
+//Route::get('/notas',notasContoller::class);
+
+//Route::get('/asignaturas',[SubjectContoller::class,'index'])->name(asignaturas);
+
     Route::resource('/users', UserCrudController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
