@@ -9,6 +9,8 @@ use Illuminate\Supoort\Str;
 use Illuminate\Supoort\Facades\DB;
 use Illuminate\Supoort\Facades\Hash;
 use App\Models\User;
+use App\Models\Anote;
+use App\Models\Reminder;
 
 class UserSeeder extends Seeder
 {
@@ -30,7 +32,9 @@ class UserSeeder extends Seeder
 //INSERTAR 50 REGISTROS CON FACTORY
         User::factory()
         ->count(50)
-        ->hasAnotes(1) //cuantas notas quiere que agregue
+        ->hasNotas(4) //cuantas notas quiere que agregue
+        ->hasReminders(1)
+        //->hasReminder(1) 
         ->create();
     }
 }

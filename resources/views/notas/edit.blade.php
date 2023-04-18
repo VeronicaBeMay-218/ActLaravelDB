@@ -14,7 +14,7 @@
                 @endforeach
                 
 
-                <form action="{{route('notas.update,$nota')}}"  method= "POST">
+                <form action="{{route('notas.update', $nota)}}"  method= "POST">
 
                 @csrf
                 @method('PATCH')
@@ -24,7 +24,7 @@
 
                 </div>
                 <div>
-                    <input type="text" name="tema" value="{{$nota->topic->tema" dissabled=class>
+                    <input type="text" name="tema" value="{{$nota->topic->tema}}">
                 </div>
 
                 <div class="flex gap-5 py-5">
@@ -35,14 +35,21 @@
 
                 <div>
                     <h2 class=''>Anotaciones</h2>
-                    <input type="text" name="anotaciones" id="anotaciones">
+                    <input type="text" name="palabras" id="palabras" value="{{$nota->palabrasClave}}">
+                    <input type="text" name="anotaciones" id="anotaciones ">
                     
                 </div>
 
                 <div class=''>
                     <h2>Resumen</h2>
                 
-                    <input type="text" name="resumen" id="resumen">
+                    <input type="text" name="palabras" id="palabras" value="{{$nota->palabrasClave}}">
+                    <input type="text" name="resumen" id="resumen ">
+                </div>
+                <div class=''>
+                    <button type="">Guardar</button>
+                
+                    
                 </div>
             </div>
             </form>

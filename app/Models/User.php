@@ -2,12 +2,20 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\User;
+
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use App\Models\Nota;
+
+use App\Models\Reminder;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -21,6 +29,8 @@ class User extends Authenticatable
         'name',
         'last_name',
         'email',
+        'matricula',
+        'carrera',
         'password',
     ];
 
@@ -43,10 +53,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function anotes(): HasMany//esta relacion se llama topics
-{
-    return $this->hasMany(Anote::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
-    //y voy a acceder a ellos a travez de topics
-    //topics va regresar todos lo temas relacionados a el subject
+    public function notas(): HasMany//esta relacion se llama topics
+    {
+        return $this->hasMany(Nota::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
+        //y voy a acceder a ellos a travez de topics
+        //topics va regresar todos lo temas relacionados a el subject
 
+        public function reminders(): HasMany//esta relacion se llama topics
+        {
+            return $this->hasMany(Reminder::class);}//retur de este modelo que apunta a topic class tiene muchos topicos
+            //y voy a acceder a ellos a travez de topics
+            //topics va regresar todos lo temas relacionados a el subject
 }

@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\AnoteController;
+use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\UserCrudController;
 use App\Http\Controllers\NotasController;
 /*
@@ -32,13 +35,19 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
   //diferentes metodos
-//Route::get('/notas',[notasContoller::class,'index'])->name('notas');
-//Route::get('/notas/{id}',[notasContoller::class,'show'])->name('notas.show');
-//Route::get('/notas',[notasContoller::class,'show'])->name('notes.create');
+    Route::get('/nota',[AnoteController::class,'index'])->name('notas');
 
-//Route::get('/notas',notasContoller::class);
+    //Route::get('/notas/{id}',[AnoteController::class,'show'])->name('notas.show');
 
-//Route::get('/asignaturas',[SubjectContoller::class,'index'])->name(asignaturas);
+    //Route::get('/notasE/{id}',[AnoteController::class,'edit'])->name('notas.edit');
+    //Route::get('/notasD/{id}',[AnoteController::class,'destroy'])->name('notas.destroy');
+    //Route::get('/nota/{id}',[AnoteController::class,'create'])->name('notas.create');
+
+    Route::resource('/notas',AnoteController::class);
+    //Route::resource('/recordatorios',ReminderController::class);
+
+    Route::get('/asignaturas',[SubjectController::class,'index'])->name('asignaturas');
+    
 
     Route::resource('/users', UserCrudController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

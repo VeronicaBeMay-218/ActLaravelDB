@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anotes', function (Blueprint $table) {
+        Schema::create('notas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('anotaciones',200);
-            $table->string('palabrasClave',200);
-            $table->string('resumen',200);
+            $table->string('anotaciones',1000);
+            $table->string('palabrasClave',1000);
+            $table->string('resumen',1000);
            
             $table->foreignId('user_id')
 
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anotes');
+        Schema::dropIfExists('notas');
     }
 };

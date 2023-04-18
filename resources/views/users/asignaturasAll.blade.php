@@ -2,7 +2,7 @@
 
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Notas') }}
+            {{ __('Asignaturas') }}
         </h2>
     </x-slot>
 
@@ -16,9 +16,9 @@
 
                              <tr>
                                 <th></th>
-                                <th class="">Resumen</th>
-                                <th>Asignatura</th>
-                                <th>Tema</th>
+                                <th class="">Nombre</th>
+                                <th>Clave</th>
+                                <th>Temas</th>
                                 <th>Acciones</th>
                                 
                             </tr>
@@ -27,24 +27,19 @@
 
                              <tbody>
 
-                                @foreach ($notas as $nota)
+                                @foreach ($asignaturas as $asignatura)
                                 @if ($loop->even)
                                 
-                                <tr class="text-slate-400">
+                                <tr class="bg-slate-500">
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
-                                    <td class="px-3 py-2 px-3 py-2 text-slate-500">{{$nota->resumen}}</td>
-                                    <td class="px-3 py-2 bg-slate-500">{{$nota->topic->subject->nombre}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$nota->topic->tema}}</td>
-                                    
+                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->nombre}}</td>
+                                    <td class="px-3 py-2 bg-slate-500">{{$asignatura->clave}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->topics}}</td>
+                                    <td>
+
                                   
-                                <td>
-                                    
-                                <x-detalles-link :nota='$nota'></x-detalles-link>
-                                <x-create-link :nota='$nota'></x-create-link>
-                                <x-edit-link :nota='$nota'></x-edit-link>
-                                <x-eliminar-link :nota='$nota'></x-eliminar-link>
                                     
                                 
 
@@ -53,17 +48,14 @@
 
                                 <tr>
                                 <td>{{$loop->iteration}}</td>
-                                    <td class="px-3 py-2 bg-slate-100">{{$nota->resumen}}</td>
-                                      <td class="px-3 py-2 bg-slate-500">{{$nota->topic->subject->nombre}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$nota->topic->tema}}</td>
+                                    <td class="px-3 py-2 bg-slate-100">{{$asignatura->nombre}}</td>
+                                      <td class="px-3 py-2 bg-slate-500">{{$asignatura->clave}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->topics}}</td>
 
-                                    
+                                    <td class='px-3'></td>
                                 <td>
-                                    
-                                <x-detalles-link :nota='$nota'></x-detalles-link>
-                                <x-create-link :nota='$nota'></x-create-link>
-                                <x-edit-link :nota='$nota'></x-edit-link>
-                                <x-eliminar-link :nota='$nota'></x-eliminar-link>
+                                
+                             
                                 
                                 
                                 
@@ -88,4 +80,3 @@
     </div>
 
 </x-app-layout>
-

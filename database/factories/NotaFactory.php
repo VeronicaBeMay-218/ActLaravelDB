@@ -1,14 +1,14 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Topic;
 
+use App\Models\Topic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Note>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Nota>
  */
-class NoteFactory extends Factory
+class NotaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,6 @@ class NoteFactory extends Factory
      */
     public function definition(): array
     {
-
         //agregar id
         $topic=Topic::all()->random();
         return [

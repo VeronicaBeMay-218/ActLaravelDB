@@ -1,9 +1,5 @@
 @props(['nota'])
 
-
-<div>
-    
-<!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
 <a href="{{route('notas.destroy',$nota->id)}}" onclick="event.preventDefault();
                     document.getElementById(
                       'delete-form-{{$nota->id}}').submit();">
@@ -16,4 +12,3 @@
     <form id="delete-form-{{$nota->id}}" + action="{{route('notas.destroy', $nota->id)}}" method="post">
         @csrf @method('DELETE')
     </form>
-</div>
