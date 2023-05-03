@@ -20,32 +20,82 @@
                 </div>
 
                 
-                <div>
+                
+                <div class="container mx-auto px-20">
+
+<div class="border bg-pink-900 bg-opacity-25 rounded-lg p-6 text-gray-100 relative z-10" style="cursor: auto;">
+                
+  <div class="flex flex-wrap items-center">
+
+                    
+    <div class="flex w-full h-48 md:h-64 lg:h-72 relative max-w-sm rounded">
+                                                
+      <div class="w-8/12 psr-4 relative max-w-m rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
+                            
+                            
+      <div>
                     <br>
                     <h2 class='text-lg font-bold text-slate-400'>Palabras clave:</h2>
                     <br>
                     <p>{{$nota->palabrasClave}}</p>
                     <br>
                     </div>
-                </div>
-
-
-
-                <div>
+                </div>              
+      </div>
+                        
+      <div class="w-4/12 h-full">
+                            
+        <div class="flex flex-col ">
+                                
+          <div class="flex-1 pb-2 ">
+                                    
+            <div class="w-full h-full relative max-w-sm rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
+                                        
+            <div>
                     <br>
                     <h2 class='text-lg font-bold text-slate-400'>Anotaciones:</h2>
                     <br>
                     <p>{{$nota->anotaciones}}</p>
                     <br>
-                </div>
-
-                <div class=''>
+                </div>                     
+            </div>
+                                
+          </div>
+                                
+          <div class="flex-1 pt-2">
+                                    
+            <div class="w-full h-full relative max-w-sm rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
+                                        
+            <div class=''>
                     <h2 class='text-lg font-bold text-slate-400'>Resumen:</h2>
                     <br>
                     <p>{{$nota->resumen}}</p>
-                </div>
+                </div>                    
+            </div>
+                                
+          </div>
+                            
+        </div>
+                        
+      </div>
+                    
+    </div>
+
+                    
+    
+</div>
+
+
+               
+
+               
             </div>
         </div>
     </div>
 
 </x-app-layout>
+
+
+
+
+

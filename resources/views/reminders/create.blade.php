@@ -6,43 +6,41 @@
                 <div class="card">
                   <!-- Aqui empieza lo diferente del dashboard -->
                   <div class="card">
-  <div class="card-header">Edit Page</div>
+  <div class="card-header">reminders Page</div>
   <div class="card-body">
       
-      <form action="{{ url('reminders/' .$reminder->id) }}" method="post">
+      <form action="{{ url('reminders') }}" method="post">
         {!! csrf_field() !!}
-        @method("PATCH")
-        <input type="hidden" name="id" id="id" value="{{$reminder->id}}" id="id" />
         <label>Titulo</label></br>
-        <input type="text" name="title" id="title" value="{{$reminder->title}}" class="form-control">
+        <input type="text" name="title" id="title" class="form-control">
         @error('title')
             <br>
             <small class="text-red-900">{{ $message }}</small>
         @enderror
         </br>
         <label>Contenido</label></br>
-        <input type="text" name="content" id="content" value="{{$reminder->content}}" class="form-control">
+        <input type="text" name="content" id="content" class="form-control">
         @error('content')
             <br>
             <small class="text-red-900">{{ $message }}</small>
         @enderror
         </br>
         <label>Importancia</label></br>
-        <select id="value" value="{{$reminder->value}}" class="block mt-1 w-full h-2/4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" type="number" name="value" :value="old('value')" required autofocus autocomplete="value">
+        <select id="value" class="block mt-1 w-full h-2/4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" type="number" name="value" :value="old('value')" required autofocus autocomplete="value">
         <option value="1">Muy importante</option>
         <option value="2">Importante</option>
         <option value="3">Regular</option>
         <option value="4">No importante</option>
         </select>
         <label>Fecha de evento</label></br>
-        <input type="date" name="event_date" id="event_date" value="{{$reminder->event_date}}" class="form-control">
+        <input type="date" name="event_date" id="event_date" class="form-control">
         @error('event_date')
             <br>
             <small class="text-red-900">{{ $message }}</small>
         @enderror
         </br>
         <label>Tema</label></br>
-        <input type="text" name="topic" id="topic" value="{{$reminder->topics->topic}}" class="form-control">
+        <input type="text" name="topic" id="topic" class="form-control">
         @error('topic')
             <br>
             <small class="text-red-900">{{ $message }}</small>
@@ -54,8 +52,7 @@
         <option value="{{ $subjectId }}">{{ $subjectName }}</option>
     @endforeach
 </select>
-
-        <input type="submit" value="Update" class="btn btn-success"></br>
+        <input type="submit" value="Save" class="mt-4 btn btn-success"></br>
     </form>
    
   </div>

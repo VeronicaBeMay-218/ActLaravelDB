@@ -1,8 +1,12 @@
 <?php
 //terminar
 namespace App\Http\Controllers;
+
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Reminder;
+use Illuminate\Http\RedirectResponse;
 
 class RemindersController extends Controller
 {
@@ -12,7 +16,7 @@ class RemindersController extends Controller
     public function index()
     {
         //
-        $reminders=Reminder::where('carrera',auth()->user()->id)->get();
+        $reminders=Reminder::where('user_id', auth()->user()->id)->get();
         return view('reminders.index',compact('reminders'));
     }
 

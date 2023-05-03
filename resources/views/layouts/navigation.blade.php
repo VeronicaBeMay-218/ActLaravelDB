@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-pink-100 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -18,8 +18,12 @@
                     <x-nav-link :href="route('asignaturas')" :active="request()->routeIs('asignaturas')">
                         {{ __('Asignaturas') }}
                     </x-nav-link>
+                   
                     <x-nav-link :href="route('notas')" :active="request()->routeIs('notas')">
                         {{ __('Notas') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reminders')" :active="request()->routeIs('reminders')">
+                        {{ __('Recordatorios') }}
                     </x-nav-link>
                 </div>
             </div>

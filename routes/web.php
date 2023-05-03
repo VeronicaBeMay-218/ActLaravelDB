@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\AnoteController;
-use App\Http\Controllers\ReminderController;
+use App\Http\Controllers\RemindersController;
 use App\Http\Controllers\UserCrudController;
 use App\Http\Controllers\NotasController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
   //diferentes metodos
     Route::get('/nota',[AnoteController::class,'index'])->name('notas');
+    Route::get('/reminder',[RemindersController::class,'index'])->name('reminders');
 
     //Route::get('/notas/{id}',[AnoteController::class,'show'])->name('notas.show');
 
@@ -44,6 +46,7 @@ Route::middleware('auth')->group(function () {
     //Route::get('/nota/{id}',[AnoteController::class,'create'])->name('notas.create');
 
     Route::resource('/notas',AnoteController::class);
+    Route::resource('/reminders',RemindersController::class);
     //Route::resource('/recordatorios',ReminderController::class);
 
     Route::get('/asignaturas',[SubjectController::class,'index'])->name('asignaturas');

@@ -18,9 +18,9 @@
                                 <th></th>
                                 <th class="">Nombre</th>
                                 <th>Clave</th>
-                                <th>Temas</th>
-                                <th>Acciones</th>
-                                
+                               
+                              
+            
                             </tr>
 
                              </thead>
@@ -34,9 +34,8 @@
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->nombre}}</td>
-                                    <td class="px-3 py-2 bg-slate-500">{{$asignatura->clave}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->topics}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-pink-500">{{$asignatura->nombre}}</td>
+                                    <td class="px-3 py-2 bg-pink-500">{{$asignatura->clave}}</td>
                                     <td>
 
                                   
@@ -48,10 +47,9 @@
 
                                 <tr>
                                 <td>{{$loop->iteration}}</td>
-                                    <td class="px-3 py-2 bg-slate-100">{{$asignatura->nombre}}</td>
-                                      <td class="px-3 py-2 bg-slate-500">{{$asignatura->clave}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$asignatura->topics}}</td>
-
+                                    <td class="px-3 py-2 bg-pink-100">{{$asignatura->nombre}}</td>
+                                      <td class="px-3 py-2 bg-pink-100">{{$asignatura->clave}}</td>
+                                    
                                     <td class='px-3'></td>
                                 <td>
                                 
