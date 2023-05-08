@@ -30,11 +30,11 @@
                                 @foreach ($notas as $nota)
                                 @if ($loop->even)
                                 
-                                <tr class="text-slate-400">
+                                <tr class="text-slate-800">
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
-                                    <td class="px-3 py-2 px-3 py-2 text-slate-400">{{$nota->resumen}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 text-slate-800">{{$nota->resumen}}</td>
                                     <td class="px-3 py-2 bg-pink-200 bg-[#fef3c7]">{{$nota->topic->subject->nombre}}</td>
                                     <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{$nota->topic->tema}}</td>
                                     
@@ -42,7 +42,7 @@
                                 <td>
                                     
                                 <x-detalles-link :nota='$nota'></x-detalles-link>
-                                <x-create-link :nota='$nota'></x-create-link>
+                            
                                 <x-edit-link :nota='$nota'></x-edit-link>
                                 <x-eliminar-link :nota='$nota'></x-eliminar-link>
                                     
@@ -61,7 +61,7 @@
                                 <td>
                                     
                                 <x-detalles-link :nota='$nota'></x-detalles-link>
-                                <x-create-link :nota='$nota'></x-create-link>
+                             
                                 <x-edit-link :nota='$nota'></x-edit-link>
                                 <x-eliminar-link :nota='$nota'></x-eliminar-link>
                                 

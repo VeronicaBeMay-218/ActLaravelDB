@@ -28,9 +28,11 @@
 
                 
                 <div>
+                Tema:
                 <select  class='text-lg font-bold text-slate-400' name="tema">
-                <option value=" @foreach($temas as $tema)  @endforeach">{{$tema->tema}}</option>
-              
+                @foreach($temas as $tema)
+                <option value="">{{$tema->tema}}</option>
+                @endforeach
                 </select>
                 
                 </div>

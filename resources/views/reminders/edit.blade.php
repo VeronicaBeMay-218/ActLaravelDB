@@ -1,68 +1,61 @@
 <x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Modificar reminder') }}
+        </h2>
+    </x-slot>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                <div class="card">
-                  <!-- Aqui empieza lo diferente del dashboard -->
-                  <div class="card">
-  <div class="card-header">Edit Page</div>
-  <div class="card-body">
-      
-      <form action="{{ url('reminders/' .$reminder->id) }}" method="post">
-        {!! csrf_field() !!}
-        @method("PATCH")
-        <input type="hidden" name="id" id="id" value="{{$reminder->id}}" id="id" />
-        <label>Titulo</label></br>
-        <input type="text" name="title" id="title" value="{{$reminder->title}}" class="form-control">
-        @error('title')
-            <br>
-            <small class="text-red-900">{{ $message }}</small>
-        @enderror
-        </br>
-        <label>Contenido</label></br>
-        <input type="text" name="content" id="content" value="{{$reminder->content}}" class="form-control">
-        @error('content')
-            <br>
-            <small class="text-red-900">{{ $message }}</small>
-        @enderror
-        </br>
-        <label>Importancia</label></br>
-        <select id="value" value="{{$reminder->value}}" class="block mt-1 w-full h-2/4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" type="number" name="value" :value="old('value')" required autofocus autocomplete="value">
-        <option value="1">Muy importante</option>
-        <option value="2">Importante</option>
-        <option value="3">Regular</option>
-        <option value="4">No importante</option>
-        </select>
-        <label>Fecha de evento</label></br>
-        <input type="date" name="event_date" id="event_date" value="{{$reminder->event_date}}" class="form-control">
-        @error('event_date')
-            <br>
-            <small class="text-red-900">{{ $message }}</small>
-        @enderror
-        </br>
-        <label>Tema</label></br>
-        <input type="text" name="topic" id="topic" value="{{$reminder->topics->topic}}" class="form-control">
-        @error('topic')
-            <br>
-            <small class="text-red-900">{{ $message }}</small>
-        @enderror
-        </br>
-        <label>Asignatura</label></br>
-<select id="subject" class="block mt-1 w-full h-2/4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" type="text" name="subject" :value="old('subject')" required autofocus autocomplete="subject">
-    @foreach($subjects as $subjectId => $subjectName)
-        <option value="{{ $subjectId }}">{{ $subjectName }}</option>
-    @endforeach
-</select>
+                @foreach($errors->all() as $message)
+                {{$message}}
+                @endforeach
+                
 
-        <input type="submit" value="Update" class="btn btn-success"></br>
-    </form>
-   
-  </div>
-</div>
-<!-- Aqui termina lo diferente del dashboard -->
+                <form action="{{route('reminders.update', $reminder)}}"  method= "POST">
+
+                @csrf
+                @method('PATCH')
+                <div>
+                          <h2></h2>
+                          <h3></h3>
+
+                </div>
+                <div>
+                    Asignatura: 
+                    <input class="" type="text" name="asignatura"value="{{ $reminder->Subject->nombre}}">
+                </div>
+
+                <div class="flex gap-5 py-5">
+                    <h2  class='text-lg font-bold text-slate-400' >Mensaje:</h2>
+                    <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="mensaje" id="mensaje" value="{{$reminder->mensaje}}">
+                    
+                </div>
+
+                <div>
+                    <h2  class='text-lg font-bold text-slate-400'>Categoria:</h2>
+                    <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="categoria" id="categoria" value="{{$reminder->categoria}}">
+                    <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="categoria" id="categoris">
+                    
+                </div>
+
+                <div class=''>
+                    <h2  class='text-lg font-bold text-slate-400'>Importancia:</h2>
+                
+                    <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="importancia" id="palabras" value="{{$reminder->importancia}}">
+                    <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="importancia" id="importancia">
+                </div>
+                <br>
+                <div  class='text-lg font-bold text-slate-400'>
+                    <button class="bg-pink-100 hover:bg-pink-200 text-black font-bold py-2 px-4 rounded" type="">Guardar</button>
+                
+                    
                 </div>
             </div>
+            </form>
         </div>
     </div>
+
 </x-app-layout>

@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-red-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-orange-700">
+                <div class="p-6  dark:text-orange-700">
                 <table class="table mx-auto">
                              <thead>
 
@@ -18,6 +18,7 @@
                                 <th></th>
                                 <th class="">Nombre</th>
                                 <th>Clave</th>
+                                <th>Acción</th>
                                
                               
             
@@ -30,7 +31,7 @@
                                 @foreach ($asignaturas as $asignatura)
                                 @if ($loop->even)
                                 
-                                <tr class="bg-slate-500">
+                                <tr class="">
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
@@ -38,8 +39,11 @@
                                     <td class="px-3 py-2 bg-pink-500">{{$asignatura->clave}}</td>
                                     <td>
 
-                                  
-                                    
+                                    <x-create-link :nota='$asignatura'></x-create-link>
+
+                                    </td>
+
+                                 
                                 
 
                                 </tr>
@@ -50,10 +54,10 @@
                                     <td class="px-3 py-2 bg-pink-100">{{$asignatura->nombre}}</td>
                                       <td class="px-3 py-2 bg-pink-100">{{$asignatura->clave}}</td>
                                     
-                                    <td class='px-3'></td>
+                                    
                                 <td>
                                 
-                             
+                                <x-create-link :nota='$asignatura'></x-create-link>
                                 
                                 
                                 

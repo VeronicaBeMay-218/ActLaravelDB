@@ -6,8 +6,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Reminder;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Subject;
 
+use Illuminate\Http\RedirectResponse;
+use App\Policies\NotaPolicy;
+
+
+use Illuminate\Support\Facades\Validator;
 class RemindersController extends Controller
 {
     /**
@@ -17,7 +22,7 @@ class RemindersController extends Controller
     {
         //
         $reminders=Reminder::where('user_id', auth()->user()->id)->get();
-        return view('reminders.index',compact('reminders'));
+        return view('reminders.all',compact('reminders'));
     }
 
     /**
@@ -26,7 +31,7 @@ class RemindersController extends Controller
     public function create()
     {
         //
-        return view ('reminders');
+        return view ('reminders.create');
     }
 
     /**
@@ -39,13 +44,15 @@ class RemindersController extends Controller
         $validator = Validator::make($request->all(), [
             'mensaje' => 'required',
             'categoria' => 'required',
-            'importanica' => 'required',
-            'resumen' => 'required'
+            'importancia' => 'required',
+            'fecha' => 'required',
+            'destacado' => 'required',
+            'completado' => 'required'
         ]);
  
         //validación
         if ($validator->fails()) {
-            return redirect('recordatorios/create')
+            return redirect('reminders/create')
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -54,14 +61,16 @@ class RemindersController extends Controller
         $reminder = new Reminder();
         $reminder->mensaje = $request->mensaje;
         $reminder->categoria = $request->categoria;
-        $reminder->mensaje = $request->mensaje;
-        $reminder->mensaje = $request->mensaje;
-        $reminder->mensaje = $request->mensaje;
+        $reminder->importancia = $request->importancia;
+        $reminder->fecha = $request->fecha ;
+        $reminder->destacado = $request->destacado;
+        $reminder->completado = $request->completado;
+       
         
         $reminder->user_id = auth()->user()->id;
         $reminder->subject_id = $request->asignatura;
         $reminder->save();
-        return redirect()->route('reminders.show',$nota);
+        return redirect()->route('reminders.show',$reminder);
     }
 
     /**
@@ -70,7 +79,18 @@ class RemindersController extends Controller
     public function show(string $id)
     {
         //
-        $reminder=Reminder::find($id);
+       
+
+        $reminder = Reminder::find($id);
+
+       
+       
+       
+       // $this->authorize('view', $reminder); 
+
+
+        return view('reminders.show', compact('reminder'));
+        
     }
 
     /**
@@ -79,9 +99,17 @@ class RemindersController extends Controller
     public function edit(string $id)
     {
         //
-        $this->authorize('update', $nota); //update por view
+       // $this->authorize('update', $reminder); //update por view
 
-        return view('notas.edit',compact('nota'));
+       // return view('reminders.edit',compact('reminders'));
+
+
+        $reminder=Reminder::find($id);
+
+
+        // $this->authorize('edit', $nota); //update por view
+ 
+         return view('reminders.edit',compact('reminder'));
     }
 
     /**
@@ -94,8 +122,26 @@ class RemindersController extends Controller
     {
         //
 
-        $reminder=Reminder::find($id);
+        $validator = Validator::make($request->all(), [
+            'categoria' => 'required',
+            'importancia' => 'required'
+        ]);
+ 
+        //validación
+        if ($validator->fails()) {
+            return redirect("reminders/$id/edit")
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
+        $reminder = Reminder::find($id);
+        $reminder->categoria= $request->categoria;
+        $reminder->importancia= $request->importancia;
+        $reminder->save();
+        return redirect()->route('reminders.index');
+
+
+        
 
     }
 
@@ -106,7 +152,7 @@ class RemindersController extends Controller
     {
         //
         $reminder=Reminder::find($id);
-        $nota->delete();
-        return redirect()->route('reminder.index');
+        $reminder->delete();
+        return redirect()->route('reminders.index');
     }
 }

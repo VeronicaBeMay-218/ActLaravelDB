@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         User::factory()
         ->count(50)
         ->hasNotas(4) //cuantas notas quiere que agregue
-        ->hasReminders(1)
+        ->hasReminders(4)
         //->hasReminder(1) 
         ->create();
     }

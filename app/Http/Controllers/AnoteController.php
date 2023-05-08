@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Nota;
 use App\Models\Subject;
 use App\Policies\NotaPolicy;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\RedirectResponse;
@@ -38,13 +40,8 @@ class AnoteController extends Controller
     {
         //
         //$this->authorize('create', Nota::class); 
-        $temas = DB::table('subjects')
-            ->join('topics', 'subjects.id', '=', 'topics.subject_id')
-            ->select('topics.id', 'topics.tema')
-            ->where('subjects.carrera', auth()->user()->ing)
-            ->get();
-        //dd($temas);
-        return view('notas.create', compact('temas'));
+        $subject=Subject::all();
+        return view('reminders.create',compact('subject'));
     }
 
     /**

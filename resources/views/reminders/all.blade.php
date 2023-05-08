@@ -27,7 +27,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ url('/reminders/create') }}" class="btn btn-success btn-sm" title="Add New reminder">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar nuevo
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar nueva
                         </a>
                         <br/>
                         <br/>
@@ -43,31 +43,33 @@
                                         <th>Destacado</th>
                                         <th>Completado</th>
                                         <th>Asignatura</th>
-                                        <th>Actions</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($reminders as $item)
+                                @foreach($reminders as $reminder)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->mensaje }}</td>
-                                        <td>{{ $item->categoria }}</td>
-                                        <td>{{ $item->importancia }}</td>
-                                        <td>{{ $item->fecha}}</td>
+                                        <td>{{ $reminder->mensaje }}</td>
+                                        <td>{{ $reminder->categoria }}</td>
+                                        <td>{{ $reminder->importancia }}</td>
+                                        <td>{{ $reminder->fecha}}</td>
         
-                                        <td>{{ $item->destacado}}</td>
-                                        <td>{{ $item->completado}}</td>
-                                        <td>{{ $item->Subject->nombre}}</td>
+                                        <td>{{ $reminder->destacado}}</td>
+                                        <td>{{ $reminder->completado}}</td>
+                                        <td>{{ $reminder->Subject->nombre}}</td>
  
                                         <td>
-                                            <a href="{{ url('/reminders/' . $item->id) }}" title="View reminder"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/reminders/' . $item->id . '/edit') }}" title="Edit reminder"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
- 
-                                            <form method="POST" action="{{ url('/reminders' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete reminder" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
+                                            
+                                        <td>
+                                    
+                                    <x-detalles-reminder-link :reminder='$reminder'></x-detalles-reminder-link>
+                                
+                                    <x-edit-reminder-link :reminder='$reminder'></x-edit-reminder-link>
+                                    <x-eliminar-reminder-link :reminder='$reminder'></x-eliminar-reminder-link>
+                                        
+                                    
+                                    </form>
                                         </td>
                                     </tr>
                                 @endforeach
