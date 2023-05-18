@@ -8,7 +8,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[url('/img/img3.svg')] dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+              <br>
+              <br>
+              
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                 <div class="flex flex-col justify-center items-center">
                 <div class="bg-[#d6d3d1] relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[100%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-1">
@@ -81,9 +84,9 @@
             <div class="w-full h-full relative max-w-sm rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
                                         
             <div class=''>
-                    <h2 class='text-lg font-bold text-slate-400'>Importancia:</h2>
+                    <h2 class='text-lg font-bold text-slate-400'>Fecha:</h2>
                     <br>
-                    <p>{{$reminder->Fecha}}</p>
+                    <p>{{$reminder->fecha}}</p>
                 </div>                    
             </div>
 
@@ -92,7 +95,7 @@
             <div class="w-full h-full relative max-w-sm rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
                                         
             <div class=''>
-                    <h2 class='text-lg font-bold text-slate-400'>Importancia:</h2>
+                    <h2 class='text-lg font-bold text-slate-400'>Destacado:</h2>
                     <br>
                     <p>{{$reminder->destacado}}</p>
                 </div>                    
@@ -103,7 +106,7 @@
             <div class="w-full h-full relative max-w-sm rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
                                         
             <div class=''>
-                    <h2 class='text-lg font-bold text-slate-400'>Importancia:</h2>
+                    <h2 class='text-lg font-bold text-slate-400'>Completado:</h2>
                     <br>
                     <p>{{$reminder->completado}}</p>
                 </div>                    

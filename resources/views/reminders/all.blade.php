@@ -17,21 +17,26 @@
         <form action="{{ route('reminders.index') }}" method="GET">
     <div class="form-group">
         <input type="text" class="form-control" name="search" value="{{ $search ?? '' }}" placeholder="Buscar recordatorios..." autocomplete="off">
+        <button type="submit" class="bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold py-2 px-4 border border-pink-500 hover:border-transparent rounded">Buscar</button>
     </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
+   
+
+    <br>
+    <br>
+<div class=" items-center">
+    <a href="{{route('reminders.create')}}" class="bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold py-2 px-4 border border-pink-500 hover:border-transparent rounded">
+        Agregar nuevo ecordatorio
+    </a>
+    </div>
+
+    <br>
 </form>
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
                         
                     </div>
-                    <div class="card-body">
-                        <a href="{{ url('/reminders/create') }}" class="btn btn-success btn-sm" title="Add New reminder">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar nueva
-                        </a>
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
+                   
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -47,31 +52,83 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                 @foreach($reminders as $reminder)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $reminder->mensaje }}</td>
-                                        <td>{{ $reminder->categoria }}</td>
-                                        <td>{{ $reminder->importancia }}</td>
-                                        <td>{{ $reminder->fecha}}</td>
+                                @if ($loop->even)
+
+                               
+                                <hr>
+
+                                <tr class="text-slate-800">
+                                    
+                                    <td>{{$loop->iteration}}</td>
+
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->mensaje }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->categoria }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200" >{{ $reminder->importancia }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->fecha}}</td>
         
-                                        <td>{{ $reminder->destacado}}</td>
-                                        <td>{{ $reminder->completado}}</td>
-                                        <td>{{ $reminder->Subject->nombre}}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->destacado}}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->completado}}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->Subject->nombre}}</td>
  
-                                        <td>
+                                
                                             
+
+
+
+
                                         <td>
                                     
                                     <x-detalles-reminder-link :reminder='$reminder'></x-detalles-reminder-link>
                                 
                                     <x-edit-reminder-link :reminder='$reminder'></x-edit-reminder-link>
                                     <x-eliminar-reminder-link :reminder='$reminder'></x-eliminar-reminder-link>
-                                        
+                                   
+                            
+                                    </tr>
+                                @else
+
+
+<tr class="text-slate-800">
+                                    
+                                    <td>{{$loop->iteration}}</td>
+
+                                        <td class="px-3 py-2 bg-pink-300">{{ $reminder->mensaje }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->categoria }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->importancia }}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->fecha}}</td>
+        
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->destacado}}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->completado}}</td>
+                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->Subject->nombre}}</td>
+ 
+                                
+                                            
+
+
+
+
+                                        <td>
+                                    
+                                    <x-detalles-reminder-link :reminder='$reminder'></x-detalles-reminder-link>
+                                
+                                    <x-edit-reminder-link :reminder='$reminder'></x-edit-reminder-link>
+                                    <x-eliminar-reminder-link :reminder='$reminder'></x-eliminar-reminder-link>
+                                   
+                            
+
+
                                     
                                     </form>
                                         </td>
+
+
                                     </tr>
+                                    </tr>
+                                
+                                @endif
+
                                 @endforeach
                                 </tbody>
                             </table>

@@ -18,7 +18,7 @@
                                 <th></th>
                                 <th class="">Nombre</th>
                                 <th>Clave</th>
-                                <th>Acción</th>
+                                <th>Crear nota</th>
                                
                               
             
@@ -35,8 +35,8 @@
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
-                                    <td class="px-3 py-2 px-3 py-2 bg-pink-500">{{$asignatura->nombre}}</td>
-                                    <td class="px-3 py-2 bg-pink-500">{{$asignatura->clave}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{$asignatura->nombre}}</td>
+                                    <td class="px-3 py-2 bg-pink-300">{{$asignatura->clave}}</td>
                                     <td>
 
                                     <x-create-link :nota='$asignatura'></x-create-link>

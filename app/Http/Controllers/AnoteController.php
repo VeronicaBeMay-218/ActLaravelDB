@@ -40,8 +40,14 @@ class AnoteController extends Controller
     {
         //
         //$this->authorize('create', Nota::class); 
-        $subject=Subject::all();
-        return view('reminders.create',compact('subject'));
+         //
+         $temas = DB::table('subjects')
+         ->join('topics', 'subjects.id', '=', 'topics.subject_id')
+         ->select('topics.id', 'topics.tema')
+         ->where('subjects.carrera', auth()->user()->ing)
+         ->get();
+     //dd($temas);
+     return view('notas.create', compact('temas'));
     }
 
     /**

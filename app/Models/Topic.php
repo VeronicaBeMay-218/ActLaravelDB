@@ -16,6 +16,8 @@ class Topic extends Model
 
     //belongTo por que este es el que le pertenece al otro
 //subject tiene 1 topico ---notas muchas hasmany
+
+
 public function subject(): BelongsTo
 {
     return $this->belongsTo(Subject::class);

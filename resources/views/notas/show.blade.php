@@ -8,10 +8,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[url('/img/img3.svg')] dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <br>
+                  <br>
+
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+
                 <div class="flex flex-col justify-center items-center">
                 <div class="bg-[#d6d3d1] relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[100%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-1">
+                  
                           <h2 class='text-xl font-bold'>{{$nota->topic->subtema}}</h2>
                           <h3 class="italic ...">{{$nota->topic->subject->nombre}} | {{$nota->topic->subject->nombre}}</h3>
                           <br>
@@ -28,7 +33,7 @@
   <div class="flex flex-wrap items-center">
 
                     
-    <div class="flex w-full h-48 md:h-64 lg:h-72 relative max-w-sm rounded">
+    <div class=" flex w-full h-48 md:h-64 lg:h-72 relative max-w-sm rounded">
                                                 
       <div class="w-8/12 psr-4 relative max-w-m rounded overflow-hidden shadow-lg bg-[#f4f4f5] text-black">
                             

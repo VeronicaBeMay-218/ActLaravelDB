@@ -34,9 +34,9 @@
                                     
                                     <td>{{$loop->iteration}}</td>
                                    
-                                    <td class="px-3 py-2 px-3 py-2 text-slate-800">{{$nota->resumen}}</td>
-                                    <td class="px-3 py-2 bg-pink-200 bg-[#fef3c7]">{{$nota->topic->subject->nombre}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{$nota->topic->tema}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{$nota->resumen}}</td>
+                                    <td class="px-3 py-2 bg-pink-300 bg-[#fef3c7]">{{$nota->topic->subject->nombre}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{$nota->topic->tema}}</td>
                                     
                                   
                                 <td>
@@ -53,9 +53,9 @@
 
                                 <tr>
                                 <td>{{$loop->iteration}}</td>
-                                    <td class="px-3 py-2 bg-pink-100">{{$nota->resumen}}</td>
-                                      <td class="px-3 py-2 bg-pink-400">{{$nota->topic->subject->nombre}}</td>
-                                    <td class="px-3 py-2 px-3 py-2 bg-pink-400">{{$nota->topic->tema}}</td>
+                                    <td class="px-3 py-2 bg-pink-200">{{$nota->resumen}}</td>
+                                      <td class="px-3 py-2 bg-pink-200 bg-[#fef3c7]">{{$nota->topic->subject->nombre}}</td>
+                                    <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{$nota->topic->tema}}</td>
 
                                     
                                 <td>

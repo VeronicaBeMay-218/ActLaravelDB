@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Reminder;
 use App\Models\Subject;
-
+use App\Models\Topic;
 use Illuminate\Http\RedirectResponse;
 use App\Policies\NotaPolicy;
 
@@ -31,7 +31,8 @@ class RemindersController extends Controller
     public function create()
     {
         //
-        return view ('reminders.create');
+        $asignaturas = Subject::where('carrera',auth()->user()->ing)->get();
+        return view('reminders.create',compact('asignaturas'));
     }
 
     /**
@@ -42,12 +43,14 @@ class RemindersController extends Controller
         //
 
         $validator = Validator::make($request->all(), [
+            'nombre' => 'required',
             'mensaje' => 'required',
             'categoria' => 'required',
             'importancia' => 'required',
             'fecha' => 'required',
             'destacado' => 'required',
             'completado' => 'required'
+            
         ]);
  
         //validación
@@ -68,7 +71,7 @@ class RemindersController extends Controller
        
         
         $reminder->user_id = auth()->user()->id;
-        $reminder->subject_id = $request->asignatura;
+        $reminder->subject_id = $request->nombre;
         $reminder->save();
         return redirect()->route('reminders.show',$reminder);
     }
@@ -155,4 +158,6 @@ class RemindersController extends Controller
         $reminder->delete();
         return redirect()->route('reminders.index');
     }
+
+ 
 }
