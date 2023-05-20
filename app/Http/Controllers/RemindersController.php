@@ -11,8 +11,10 @@ use App\Models\Topic;
 use Illuminate\Http\RedirectResponse;
 use App\Policies\NotaPolicy;
 
-
 use Illuminate\Support\Facades\Validator;
+
+
+
 class RemindersController extends Controller
 {
     /**
@@ -85,12 +87,8 @@ class RemindersController extends Controller
        
 
         $reminder = Reminder::find($id);
-
        
-       
-       
-       // $this->authorize('view', $reminder); 
-
+       $this->authorize('view', $reminder); 
 
         return view('reminders.show', compact('reminder'));
         
@@ -109,6 +107,7 @@ class RemindersController extends Controller
 
         $reminder=Reminder::find($id);
 
+        //$this->authorize('view', $reminder); 
 
         // $this->authorize('edit', $nota); //update por view
  

@@ -1,6 +1,6 @@
 <x-app-layout>
 <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="titulo1 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Registra una nueva nota') }}
         </h2>
     </x-slot>
@@ -28,8 +28,13 @@
 
                 
                 <div>
+
+                <h2 class='titulo1 text-lg font-bold text-slate-600'>
                 Tema:
-                <select class="text-lg font-bold text-slate-800" name="tema">
+
+                </h2>
+               
+                <select class="titulo1 text-lg font-bold text-slate-800" name="tema">
     @foreach($temas as $tema)
         <option value="{{ $tema->id }}">{{ $tema->tema }}</option>
     @endforeach
@@ -38,26 +43,26 @@
                 </div>
                 <br>
                 <div>
-                    <h2  class='text-lg font-bold text-slate-400' >Palabras clave</h2>
+                    <h2  class='titulo1 text-lg font-bold text-slate-600' >Palabras clave</h2>
                     <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="palabras" id="palabras">
                     
                 </div>
 
                 <div>
-                    <h2  class='text-lg font-bold text-slate-400'>Anotaciones</h2>
+                    <h2  class='titulo1 text-lg font-bold text-slate-600'>Anotaciones</h2>
                     <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="anotaciones" id="anotaciones">
                     
                 </div>
 
                 <div class=''>
-                    <h2  class='text-lg font-bold text-slate-400'>Resumen</h2>
+                    <h2  class='titulo1 text-lg font-bold text-slate-600'>Resumen</h2>
                 
                     <input class="block rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text" name="resumen" id="resumen">
                 </div>
 
                 <div >
                     <br>
-                    <button class="bg-blue-500 hover:bg-pink-200 text-black font-bold py-2 px-4 rounded bg-pink-100" type="submit" value="Save">Enviar</button>
+                    <button class="titulo1 bg-blue-500 hover:bg-pink-200 text-black font-bold py-2 px-4 rounded bg-pink-100" type="submit" value="Save">Enviar</button>
                 
                     
                 </div>
@@ -76,6 +81,31 @@
           
         </div>
     </div>
+
+
+    <style>
+
+@font-face {
+    font-family: 'baby asyifa';
+    src: url('font/baby asyifa.ttf');
+}
+
+@font-face {
+    font-family: 'EmilyDisplayRegular';
+    src: url('font/EmilyDisplayRegular.ttf');
+}
+
+.titulo1{
+    font-family: 'baby asyifa';
+    font-size:20px;
+}
+
+.titulo2{
+    font-family: 'EmilyDisplayRegular';
+    font-size:30px;
+}
+</style>
+    
 
 </x-app-layout>
 

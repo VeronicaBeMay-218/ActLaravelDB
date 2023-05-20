@@ -30,4 +30,6 @@ class ReminderFactory extends Factory
             'subject_id'=>$subject
         ];
     }
+
+    
 }

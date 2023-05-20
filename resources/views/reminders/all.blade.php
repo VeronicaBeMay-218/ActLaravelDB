@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="titulo1 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Recordatorios') }}
         </h2>
     </x-slot>
@@ -16,16 +16,16 @@
 
         <form action="{{ route('reminders.index') }}" method="GET">
     <div class="form-group">
-        <input type="text" class="form-control" name="search" value="{{ $search ?? '' }}" placeholder="Buscar recordatorios..." autocomplete="off">
-        <button type="submit" class="bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold py-2 px-4 border border-pink-500 hover:border-transparent rounded">Buscar</button>
+        <input class="titulo2"type="text" class="form-control" name="search" value="{{ $search ?? '' }}" placeholder="Buscar recordatorios..." autocomplete="off">
+        <button type="submit" class="titulo2 bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold  px-4 border border-pink-500 hover:border-transparent rounded">Buscar</button>
     </div>
    
 
     <br>
     <br>
 <div class=" items-center">
-    <a href="{{route('reminders.create')}}" class="bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold py-2 px-4 border border-pink-500 hover:border-transparent rounded">
-        Agregar nuevo ecordatorio
+    <a href="{{route('reminders.create')}}" class="titulo2 bg-transparent hover:bg-pink-500 text-pink-700  hover:text-white font-bold py-2 px-4 border border-pink-500 hover:border-transparent rounded">
+        Agregar nuevo recordatorio
     </a>
     </div>
 
@@ -40,15 +40,15 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Mensaje</th>
-                                        <th>Categoria</th>
-                                        <th>Importancia</th>
-                                        <th>Fecha</th>
-                                        <th>Destacado</th>
-                                        <th>Completado</th>
-                                        <th>Asignatura</th>
-                                        <th>Acciones</th>
+                                        <th class="titulo1">#</th>
+                                        <th class="titulo1">Mensaje</th>
+                                        <th class="titulo1">Categoria</th>
+                                        <th class="titulo1">Importancia</th>
+                                        <th class="titulo1">Fecha</th>
+                                        <th class="titulo1">Destacado</th>
+                                        <th class="titulo1">Completado</th>
+                                        <th class="titulo1">Asignatura</th>
+                                        <th class="titulo1">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,14 +63,14 @@
                                     
                                     <td>{{$loop->iteration}}</td>
 
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->mensaje }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->categoria }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200" >{{ $reminder->importancia }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->fecha}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->mensaje }}</td>
+                                        <td class="titulo2px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->categoria }}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200" >{{ $reminder->importancia }}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->fecha}}</td>
         
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->destacado}}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->completado}}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->Subject->nombre}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->destacado}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->completado}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-200">{{ $reminder->Subject->nombre}}</td>
  
                                 
                                             
@@ -94,14 +94,14 @@
                                     
                                     <td>{{$loop->iteration}}</td>
 
-                                        <td class="px-3 py-2 bg-pink-300">{{ $reminder->mensaje }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->categoria }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->importancia }}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->fecha}}</td>
+                                        <td class="titulo2 px-3 py-2 bg-pink-300">{{ $reminder->mensaje }}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->categoria }}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->importancia }}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->fecha}}</td>
         
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->destacado}}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->completado}}</td>
-                                        <td class="px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->Subject->nombre}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->destacado}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->completado}}</td>
+                                        <td class="titulo2 px-3 py-2 px-3 py-2 bg-pink-300">{{ $reminder->Subject->nombre}}</td>
  
                                 
                                             
@@ -144,4 +144,28 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+
+@font-face {
+    font-family: 'baby asyifa';
+    src: url('font/baby asyifa.ttf');
+}
+
+@font-face {
+    font-family: 'EmilyDisplayRegular';
+    src: url('font/EmilyDisplayRegular.ttf');
+}
+
+.titulo1{
+    font-family: 'baby asyifa';
+    font-size:20px;
+}
+
+.titulo2{
+    font-family: 'EmilyDisplayRegular';
+    font-size:30px;
+}
+</style>
 </x-app-layout>

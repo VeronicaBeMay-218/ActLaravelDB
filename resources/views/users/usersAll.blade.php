@@ -1,6 +1,6 @@
 <x-app-layout>
 <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="titulo1 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Usuarios') }}
         </h2>
     </x-slot>
@@ -15,8 +15,8 @@
 
                              <tr>
                                 <th></th>
-                                <th class="">Nombre</th>
-                                <th>email</th>
+                                <th class="titulo1">Nombre</th>
+                                <th class="titulo1">email</th>
                                 
                             </tr>
 
@@ -29,19 +29,19 @@
                                 
                                 <tr class="bg-slate-500">
                                     
-                                    <td>{{$loop->iteration}}</td>
+                                    <td class="titulo2">{{$loop->iteration}}</td>
                                     
-                                    <td class="px-3 py-2 px-3 py-2 bg-slate-500">{{$user->name}}</td>
-                                    <td class="px-3 py-2 bg-slate-500">{{$user->email}}</td>
+                                    <td class="titulo2 px-3 py-2 px-3 py-2 bg-slate-500">{{$user->name}}</td>
+                                    <td class="titulo2 px-3 py-2 bg-slate-500">{{$user->email}}</td>
                                 
 
                                 </tr>
                                 @else
 
                                 <tr>
-                                <td>{{$loop->iteration}}</td>
-                                    <td class="px-3 py-2 bg-slate-100">{{$user->name}}</td>
-                                    <td class="px-3 py-2 bg-slate-500">{{$user->email}}</td>
+                                <td class="titulo2">{{$loop->iteration}}</td>
+                                    <td class="titulo2 px-3 py-2 bg-slate-100">{{$user->name}}</td>
+                                    <td class="titulo2 px-3 py-2 bg-slate-500">{{$user->email}}</td>
                                 
                                 </tr>
                                 
@@ -55,6 +55,29 @@
             </div>
         </div>
     </div>
+
+    <style>
+
+@font-face {
+    font-family: 'baby asyifa';
+    src: url('font/baby asyifa.ttf');
+}
+
+@font-face {
+    font-family: 'EmilyDisplayRegular';
+    src: url('font/EmilyDisplayRegular.ttf');
+}
+
+.titulo1{
+    font-family: 'baby asyifa';
+    font-size:20px;
+}
+
+.titulo2{
+    font-family: 'EmilyDisplayRegular';
+    font-size:30px;
+}
+</style>
 
 </x-app-layout>
 
