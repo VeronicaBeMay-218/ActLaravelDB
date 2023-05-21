@@ -23,12 +23,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
-                <h1>
+                
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-nav-link>
 
-                    </h1>
+                
                     <x-nav-link :href="route('asignaturas')" :active="request()->routeIs('asignaturas') ">
                         {{ __('Asignaturas') }}
                     </x-nav-link>
@@ -38,6 +38,10 @@
                     </x-nav-link>
                     <x-nav-link :href="route('reminders')" :active="request()->routeIs('reminders')">
                         {{ __('Recordatorios') }}
+                    </x-nav-link>
+                    
+                    <x-nav-link :href="route('calendario')" :active="request()->routeIs('calendario')">
+                        {{ __('Calendario') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -102,8 +106,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
-                <div class="titulo2 font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="titulo2 nt-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+                <div class="text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
@@ -125,26 +129,4 @@
         </div>
     </div>
 
-    <style>
-
-@font-face {
-    font-family: 'baby asyifa';
-    src: url('font/baby asyifa.ttf');
-}
-
-@font-face {
-    font-family: 'EmilyDisplayRegular';
-    src: url('font/EmilyDisplayRegular.ttf');
-}
-
-.titulo1{
-    font-family: 'baby asyifa';
-    font-size:20px;
-}
-
-.titulo2{
-    font-family: 'EmilyDisplayRegular';
-    font-size:30px;
-}
-</style>
 </nav>

@@ -8,6 +8,7 @@ use App\Http\Controllers\AnoteController;
 use App\Http\Controllers\RemindersController;
 use App\Http\Controllers\UserCrudController;
 use App\Http\Controllers\NotasController;
+use App\Http\Controllers\CalendarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function () {
     //Route::resource('/recordatorios',ReminderController::class);
 
     Route::get('/asignaturas',[SubjectController::class,'index'])->name('asignaturas');
+    Route::get('/calendario',[CalendarioController::class,'index'])->name('calendario');
     
 
     Route::resource('/users', UserCrudController::class);
